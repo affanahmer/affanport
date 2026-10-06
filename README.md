@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Affan Ahmer - Portfolio
 
-## Getting Started
+This is a premium, high-performance personal portfolio website built with Next.js 15, React 19, and Tailwind CSS 4. It features a continuous smooth scroll experience (Lenis) and is heavily optimized for a flawless visual experience.
 
-First, run the development server:
+## Sections
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+| Section     | Description |
+| ----------- | ----------- |
+| Hero        | Full-screen video hero with sound unlock interaction and greeting. |
+| About       | ID card interaction with pendulum physics and 3D hover effects. |
+| Skills      | A "periodic table" grid with an interactive inspector panel. |
+| Work        | Expanding accordion gallery showcasing projects. |
+| Experience  | Vertical timeline highlighting education and professional journey. |
+| Contact     | Final call to action with hopping letters and copy-to-clipboard email interaction. |
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+*Note: The "Certifications" and "Achievements" sections were dynamically omitted as per the provided résumé data.*
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How to run the site
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-## Learn More
+2. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. **Open the site:**
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Production Build:**
+   ```bash
+   npm run build
+   npm start
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Rebuilding the Hero Video
 
-## Deploy on Vercel
+To re-process the hero video assets, ensure you have Python and `ffmpeg` installed on your machine, along with the `numpy` package.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Place your source video at the root of the project named `intro.mp4`.
+2. Run the script:
+   ```bash
+   python scripts/build-hero-assets.py
+   ```
+3. The script will automatically crop, whiten the background, create a seamless audio/video crossfade loop, and export both `hero.mp4` and `hero.webm` into the `public/hero/` folder. It will also generate `public/portrait-bust.webp` and `public/og.jpg`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Credits and Licenses
+
+- **Tech Logos:** All technology logos displayed in the Skills section were sourced from [Devicon](https://devicon.dev/) (MIT License). They are served dynamically.
+- **Fonts:** 
+  - *Inter Tight* (OFL)
+  - *Instrument Serif* (OFL)
+  - *JetBrains Mono* (OFL)
+  These are self-hosted via `next/font/local`.
+- **Smooth Scroll:** [Lenis](https://lenis.studiofreight.com/) by Studio Freight.
